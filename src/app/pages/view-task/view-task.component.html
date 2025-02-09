@@ -1,0 +1,23 @@
+<h1>Current Tasks</h1>
+<main>
+    <div id="main">
+        <button routerLink="/AT">Add Task</button>
+        <button routerLink="/">Home Page</button>
+        <button routerLink="/VTH">Complete Tasks</button>
+    </div>    
+</main>
+<div id="mains">
+    
+      <div class="Items2">
+        <h3>Tasks</h3>
+        <ul>
+          <li *ngFor="let task of task; let i = index; trackBy: trackByIndex">
+            {{i+1}}:
+            {{ tasksName[i] }}
+            <span>
+              {{ task }}
+            </span>
+            <input type="checkbox" [checked]="isChecked(i)" (change)="onCheckboxChange(i, $event)">
+          </li>
+        </ul>        
+      </div>
