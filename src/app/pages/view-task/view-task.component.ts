@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TaskService } from '../../services/task.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-view-task',
@@ -15,6 +16,7 @@ export class ViewTaskComponent implements OnInit {
   task: string[] = [];
   tasksName: string[] = [];
   checkedTasks: boolean[] = [];
+  checked:boolean=false
 
   constructor(private tserve: TaskService) {}
 
@@ -38,16 +40,22 @@ export class ViewTaskComponent implements OnInit {
     this.checkedTasks[taskIndex] = $event.target.checked;
     if ($event.target.checked) {
       this.tserve.completeTask(taskIndex);
+      this.falsify()
     }
   }
-
+  
   trackByIndex(index: number, task: string): any {
     return task; // Use task instead of index if tasks are unique
   }
-
+  
   private updateCheckedTasks() {
     this.checkedTasks = this.task.map(() => false); // Ensure alignment with task array
   }
   
+  falsify(){
+    timer(0.1).subscribe(()=>{
+      this.checked = false
+    })
+  }
 }
 

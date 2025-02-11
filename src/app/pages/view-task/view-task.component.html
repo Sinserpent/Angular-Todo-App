@@ -17,7 +17,7 @@
             <span>
               {{ task }}
             </span>
-            <input type="checkbox" [checked]="isChecked(i)" (change)="onCheckboxChange(i, $event)">
+            <input type="checkbox" [(ngModel)]='checked' [checked]="isChecked(i)" (change)="onCheckboxChange(i, $event)">
           </li>
         </ul>        
       </div>
