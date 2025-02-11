@@ -2,12 +2,35 @@
     display: flex
     flex-direction: column
     align-items: center
+    overflow: hidden
     #buttons 
         display: flex
         flex-direction: row
-        gap: 30px
         width: 83%
-        justify-content: space-between
+        justify-content: space-evenly
+        margin-top: 5%
+        gap: 20px
+        @media(max-width: 460px)
+            align-items: center
+            #first
+                order:2
+            flex-direction: column
+        .main-button
+            background-color: #FFA500
+            font-weight: bold
+            color: #000000
+            border: none
+            padding: 10px 20px
+            cursor: pointer
+            font-size: 1.3em
+            border-radius: 5px
+            border: 2px solid #000000
+            transition: all 0.3s
+            white-space: nowrap
+            width:  230px
+            &:hover
+                background-color: #CC8400 
+                scale: 1.01
 label
     font-size: 1.3em
     display: block
@@ -25,19 +48,3 @@ input
         outline: none
         border: 2px solid #ff6b6b
 
-#submit
-    background-color: #ff6b6b
-    color: #000000
-    border: none
-    padding: 10px 20px
-    cursor: pointer
-    font-size: 1.3em
-    border-radius: 5px
-    border: 2px solid #000000
-    transition: all 0.3s
-    white-space: nowrap
-    margin-top: 10px
-    margin-bottom: 30px
-    &:hover
-        background-color: #ff8787
-        scale: 1.01
